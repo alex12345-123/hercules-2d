@@ -244,6 +244,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qck5"]
+size = Vector2(138, 177)
+
 [node name="player" type="CharacterBody2D" unique_id=2028694410]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1149458941]
@@ -251,5 +254,8 @@ position = Vector2(516.25, 371.5)
 scale = Vector2(0.26985744, 0.27362204)
 sprite_frames = SubResource("SpriteFrames_2la1n")
 animation = &"puño"
+frame_progress = 0.3151266
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292]
+position = Vector2(509, 374.5)
+shape = SubResource("RectangleShape2D_5qck5")

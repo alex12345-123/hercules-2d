@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bprybtjhqi04d"]
 
 [ext_resource type="Script" uid="uid://bmxyy314wba5" path="res://menu/menu.gd" id="1_6nwqt"]
-[ext_resource type="Texture2D" uid="uid://51kb4pkb3cov" path="res://menu/image (4).jpg" id="1_g18jx"]
 [ext_resource type="FontFile" uid="uid://clfeux2t5nwma" path="res://menu/fuente.otf" id="2_6nwqt"]
+[ext_resource type="Texture2D" uid="uid://coerrj8y5beii" path="res://menu/menu2.jpg" id="2_pbjm4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_pbjm4"]
+[sub_resource type="LabelSettings" id="LabelSettings_svuvw"]
 font = ExtResource("2_6nwqt")
 font_size = 100
 outline_size = 20
-outline_color = Color(0.040186092, 0.06449205, 0.03196586, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [node name="menu" type="Control" unique_id=865973331]
 layout_mode = 3
@@ -20,40 +20,40 @@ grow_vertical = 2
 script = ExtResource("1_6nwqt")
 
 [node name="sprite_menu" type="Sprite2D" parent="." unique_id=1887258509]
-position = Vector2(-3, -599.00006)
-scale = Vector2(1.3966346, 1.3261219)
-texture = ExtResource("1_g18jx")
+position = Vector2(-2, -8.999998)
+scale = Vector2(0.84558815, 0.8515625)
+texture = ExtResource("2_pbjm4")
 centered = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=683335581]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.018000001
-anchor_top = 0.707
-anchor_right = 0.018000001
-anchor_bottom = 0.707
-offset_left = 365.264
-offset_top = 97.86398
-offset_right = 630.264
-offset_bottom = 188.86398
+[node name="titulo" type="Label" parent="." unique_id=1559487909]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 81.0
+offset_right = 746.0
+offset_bottom = 212.0
+text = "Hercules"
+label_settings = SubResource("LabelSettings_svuvw")
 
-[node name="btn_start" type="Button" parent="HBoxContainer" unique_id=2010492871]
+[node name="vbox_menu" type="VBoxContainer" parent="." unique_id=884897033]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 471.0
+offset_right = 234.0
+offset_bottom = 645.0
+
+[node name="lbl_opciones" type="Label" parent="vbox_menu" unique_id=2061218110]
 layout_mode = 2
-text = "Empezar partida
+text = "Opciones
 "
 
-[node name="btn_exit" type="Button" parent="HBoxContainer" unique_id=1566579001]
+[node name="btn_start" type="Button" parent="vbox_menu" unique_id=1503335294]
 layout_mode = 2
-text = "Salir"
+text = "Empezar partida"
 
-[node name="lbl_hercules" type="Label" parent="." unique_id=849748153]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 532.0
-offset_right = 366.0
-offset_bottom = 663.0
-text = "Hercules"
-label_settings = SubResource("LabelSettings_pbjm4")
+[node name="btn_exit" type="Button" parent="vbox_menu" unique_id=1923120326]
+layout_mode = 2
+text = "Salir
+"
 
-[connection signal="pressed" from="HBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
-[connection signal="pressed" from="HBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="vbox_menu/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="vbox_menu/btn_exit" to="." method="_on_btn_exit_pressed"]
