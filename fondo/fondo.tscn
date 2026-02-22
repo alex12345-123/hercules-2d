@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://gvneu0mxd6x"]
+
+[ext_resource type="Texture2D" uid="uid://ba3xpt4cjtqug" path="res://fondo/img/Fondo.png" id="1_0qi51"]
+
+[node name="fondo" type="ParallaxBackground" unique_id=1879355558]
+
+[node name="layer_fondo" type="ParallaxLayer" parent="." unique_id=1359893529]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1143, 0)
+
+[node name="sprt_fondo" type="Sprite2D" parent="layer_fondo" unique_id=1156199301]
+scale = Vector2(0.75, 0.73046875)
+texture = ExtResource("1_0qi51")
+centered = false

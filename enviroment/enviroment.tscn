@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://yy022fedpeip"]
+
+[ext_resource type="PackedScene" uid="uid://cftvteoxq5orp" path="res://floor/floor.tscn" id="1_knmal"]
+[ext_resource type="PackedScene" uid="uid://gvneu0mxd6x" path="res://fondo/fondo.tscn" id="2_8l5cr"]
+
+[node name="enviroment" type="Node2D" unique_id=366377024]
+
+[node name="floor" parent="." unique_id=1559939408 instance=ExtResource("1_knmal")]
+
+[node name="fondo" parent="." unique_id=1879355558 instance=ExtResource("2_8l5cr")]
