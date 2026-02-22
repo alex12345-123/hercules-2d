@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://chbwsluugu1mp" path="res://hercules/player.gd" id="1_xww6x"]
 [ext_resource type="Texture2D" uid="uid://dnvougwi8tl05" path="res://hercules/img/2_agachar.png" id="2_xww6x"]
 [ext_resource type="Texture2D" uid="uid://bwo744ci2e6t1" path="res://hercules/img/3_agachar.png" id="3_xb8pf"]
-[ext_resource type="Texture2D" uid="uid://bbx3nag5dkq00" path="res://hercules/img/1_carrera.png" id="4_hrgy0"]
 [ext_resource type="Texture2D" uid="uid://dtsfhfvf7sy78" path="res://hercules/img/2_carrera.png" id="5_eae5l"]
 [ext_resource type="Texture2D" uid="uid://c35mmdpyl6ehf" path="res://hercules/img/3_carrera.png" id="6_6ld4s"]
 [ext_resource type="Texture2D" uid="uid://dr1n3ommpils" path="res://hercules/img/4_carrera.png" id="7_vmasc"]
@@ -16,12 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://crdsdv01h7sga" path="res://hercules/img/10_carrera.png" id="13_x1i56"]
 [ext_resource type="Texture2D" uid="uid://fe8a8g0p8x4t" path="res://hercules/img/11_carrera.png" id="14_r3bw4"]
 [ext_resource type="Texture2D" uid="uid://dn7aprlb7ilas" path="res://hercules/img/12_carrera.png" id="15_whwye"]
-[ext_resource type="Texture2D" uid="uid://cmy2eqffn1pdv" path="res://hercules/img/13_carrera.png" id="16_jso86"]
-[ext_resource type="Texture2D" uid="uid://yaptihagg740" path="res://hercules/img/14_carrera.png" id="17_l8gju"]
-[ext_resource type="Texture2D" uid="uid://bstjhu02eefff" path="res://hercules/img/15_carrera.png" id="18_moa04"]
-[ext_resource type="Texture2D" uid="uid://0jjm2shh5gx2" path="res://hercules/img/16_carrera.png" id="19_y8lkc"]
-[ext_resource type="Texture2D" uid="uid://bf4kjw7p656mt" path="res://hercules/img/17_carrera.png" id="20_44ajw"]
-[ext_resource type="Texture2D" uid="uid://bpn7w4mhv70p8" path="res://hercules/img/18_carrera.png" id="21_ctr44"]
 [ext_resource type="Texture2D" uid="uid://dkhsvf331g2yt" path="res://hercules/img/1_puñoCarga.png" id="22_8owh8"]
 [ext_resource type="Texture2D" uid="uid://cpn4nhhvr81uc" path="res://hercules/img/2_puñoCarga.png" id="23_nxnsc"]
 [ext_resource type="Texture2D" uid="uid://7ttlkyrrl8k0" path="res://hercules/img/3_puñoCarga.png" id="24_wol3w"]
@@ -89,9 +82,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hrgy0")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_eae5l")
 }, {
 "duration": 1.0,
@@ -123,28 +113,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("15_whwye")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_jso86")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_l8gju")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_moa04")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_y8lkc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_44ajw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_ctr44")
 }],
-"loop": true,
+"loop": false,
 "name": &"carrera",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -189,7 +161,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("35_oo4jm")
 }],
-"loop": true,
+"loop": false,
 "name": &"puño",
 "speed": 5.0
 }, {
@@ -236,7 +208,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("50_6na1d")
 }],
-"loop": true,
+"loop": false,
 "name": &"reposo",
 "speed": 5.0
 }, {
@@ -307,7 +279,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qck5"]
-size = Vector2(112, 177)
+size = Vector2(112, 159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jso86"]
 size = Vector2(51, 42)
@@ -319,18 +291,26 @@ script = ExtResource("1_xww6x")
 position = Vector2(517.7419, 371.5)
 scale = Vector2(0.2630608, 0.27362204)
 sprite_frames = SubResource("SpriteFrames_2la1n")
-animation = &"puño"
-frame_progress = 0.8532603
+animation = &"saltar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292]
-position = Vector2(522, 374.5)
+position = Vector2(518, 367)
 shape = SubResource("RectangleShape2D_5qck5")
 
 [node name="ataque" type="Area2D" parent="." unique_id=1563765113]
 position = Vector2(580, 325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ataque" unique_id=1439758488]
-position = Vector2(24, 1)
+position = Vector2(-10, 7)
 shape = SubResource("RectangleShape2D_jso86")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=366259270]
+position = Vector2(565, 320)
+zoom = Vector2(1.5, 1.5)
+limit_left = 10
+limit_top = -9999989
+limit_right = 10000010
+limit_bottom = 659
+limit_smoothed = true
 
 [connection signal="body_entered" from="ataque" to="." method="_on_ataque_body_entered"]

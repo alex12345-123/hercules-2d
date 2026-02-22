@@ -48,7 +48,7 @@ func update_animation(input_axis):
 		ani_player.play("saltar")
 	else:
 		ani_player.speed_scale=1
-		ani_player.play("idle")
+		ani_player.play("reposo")
 
 
 var attacking = false
@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 		handle_jump()
 		update_animation(input_axis)
 
-	if Input.is_action_just_pressed("ataque") and not attacking:
+	if Input.is_action_just_pressed("puño") and not attacking:
 		attack()
 
 	move_and_slide()
