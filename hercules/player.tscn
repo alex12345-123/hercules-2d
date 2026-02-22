@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccutq7jnepyd6"]
 
 [ext_resource type="Texture2D" uid="uid://cpg6erq46e3sq" path="res://hercules/img/1_agachar.png" id="1_5qck5"]
+[ext_resource type="Script" uid="uid://chbwsluugu1mp" path="res://hercules/player.gd" id="1_xww6x"]
 [ext_resource type="Texture2D" uid="uid://dnvougwi8tl05" path="res://hercules/img/2_agachar.png" id="2_xww6x"]
 [ext_resource type="Texture2D" uid="uid://bwo744ci2e6t1" path="res://hercules/img/3_agachar.png" id="3_xb8pf"]
 [ext_resource type="Texture2D" uid="uid://bbx3nag5dkq00" path="res://hercules/img/1_carrera.png" id="4_hrgy0"]
@@ -245,17 +246,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qck5"]
-size = Vector2(138, 177)
+size = Vector2(112, 177)
 
 [node name="player" type="CharacterBody2D" unique_id=2028694410]
+script = ExtResource("1_xww6x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1149458941]
-position = Vector2(516.25, 371.5)
-scale = Vector2(0.26985744, 0.27362204)
+position = Vector2(517.7419, 371.5)
+scale = Vector2(0.2630608, 0.27362204)
 sprite_frames = SubResource("SpriteFrames_2la1n")
 animation = &"puño"
-frame_progress = 0.3151266
+frame_progress = 0.4525549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292]
-position = Vector2(509, 374.5)
+position = Vector2(522, 374.5)
 shape = SubResource("RectangleShape2D_5qck5")
