@@ -50,12 +50,45 @@ func update_animation(input_axis):
 		ani_player.speed_scale=1
 		ani_player.play("idle")
 
+
+var attacking = false
+@export var damage = 1
+
+@onready var attack_area = $ataque
+
+func _ready():
+	attack_area.monitoring = false
+
+func attack():
+	attacking = true
+	velocity.x = 0
+	ani_player.speed_scale = 1
+	ani_player.play("puño") 
+	attack_area.monitoring = true
+
+	await ani_player.animation_finished
+
+	attack_area.monitoring = false
+	attacking = false
+
 func _physics_process(delta: float) -> void:
 	var input_axis = Input.get_axis("mover_izquierda","mover_derecha")
+
 	apply_gravity(delta)
-	handle_acceleration(input_axis, delta)
-	apply_friction(input_axis, delta)
-	handle_jump()
-	handle_air_acceleration(input_axis, delta)
-	update_animation(input_axis)
+
+	if not attacking:
+		handle_acceleration(input_axis, delta)
+		handle_air_acceleration(input_axis, delta)
+		apply_friction(input_axis, delta)
+		handle_jump()
+		update_animation(input_axis)
+
+	if Input.is_action_just_pressed("ataque") and not attacking:
+		attack()
+
 	move_and_slide()
+
+
+func _on_ataque_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		body.take_damage(damage)
