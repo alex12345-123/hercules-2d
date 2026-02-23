@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dlvv5djd4o0p8"]
+
+[ext_resource type="Script" uid="uid://bluvhsy1u3xtv" path="res://obstaculo/area_2d.gd" id="1_du4ub"]
+[ext_resource type="Texture2D" uid="uid://cxk882ac00ffb" path="res://obstaculo/img/obstacleee.png" id="1_x3drb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du4ub"]
+size = Vector2(39, 111)
+
+[node name="Area2D" type="Area2D" unique_id=1902675377]
+script = ExtResource("1_du4ub")
+
+[node name="columna" type="Sprite2D" parent="." unique_id=394518124]
+position = Vector2(2, 1)
+scale = Vector2(0.275, 0.3319444)
+texture = ExtResource("1_x3drb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=21352877]
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_du4ub")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
