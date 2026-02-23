@@ -296,7 +296,7 @@ sprite_frames = SubResource("SpriteFrames_2la1n")
 animation = &"reposo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292]
-position = Vector2(545.25, 321.375)
+position = Vector2(548, 321)
 shape = SubResource("RectangleShape2D_5qck5")
 
 [node name="ataque" type="Area2D" parent="." unique_id=1563765113]
