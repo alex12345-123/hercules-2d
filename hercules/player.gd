@@ -58,6 +58,7 @@ var attacking = false
 
 func _ready():
 	attack_area.monitoring = false
+	update_health_bar()
 
 func attack():
 	attacking = true
@@ -92,3 +93,23 @@ func _physics_process(delta: float) -> void:
 func _on_ataque_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		body.take_damage(damage)
+
+@export var max_health := 100
+var health := max_health
+
+func take_damage(amount: int):
+	health -= amount
+	health = clamp(health, 0, max_health)
+	update_health_bar()
+
+	if health <= 0:
+		die()
+
+func die():
+	queue_free() 
+	
+@onready var health_bar = $CanvasLayer/ProgressBar
+
+func update_health_bar():
+	if health_bar:
+		health_bar.value = health
