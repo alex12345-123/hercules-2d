@@ -119,3 +119,39 @@ func die():
 func update_health_bar():
 	if health_bar:
 		health_bar.value = health
+		
+@onready var barra_vida = $CanvasLayer/barraVida
+
+# 2. Precargar las imágenes (ASEGÚRATE DE PONER LA RUTA CORRECTA DE TUS ASSETS)
+var img_100 = preload("res://barraVida/1barra.png")
+var img_75 = preload("res://barraVida/2barra.png")
+var img_50 = preload("res://barraVida/3barra.png")
+var img_25 = preload("res://barraVida/4barrra.png")
+
+var salud_maxima: int = 100
+var salud_actual: int = 100
+
+
+func recibir_dano(cantidad):
+	salud_actual -= cantidad
+	
+	if salud_actual <= 0:
+		salud_actual = 0
+		actualizar_interfaz_vida()
+		get_tree().reload_current_scene() 
+	else:
+		actualizar_interfaz_vida()
+
+func actualizar_interfaz_vida():
+	var porcentaje = (float(salud_actual) / salud_maxima) * 100.0
+	
+	if porcentaje >= 100:
+		barra_vida.texture = img_100
+	elif porcentaje >= 75:
+		barra_vida.texture = img_75
+	elif porcentaje >= 50:
+		barra_vida.texture = img_50
+	elif porcentaje > 0:
+		barra_vida.texture = img_25
+	else:
+		barra_vida.texture = null
