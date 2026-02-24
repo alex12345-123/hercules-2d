@@ -78,6 +78,9 @@ func update_animation(input_axis):
 		ani_player.speed_scale = velocity.length() / 100
 		ani_player.flip_h = (input_axis < 0)
 		ani_player.play("carrera")
+		
+		attack_area.scale.x = 1 if input_axis > 0 else -1
+		
 	elif not is_on_floor():
 		ani_player.play("saltar")
 	else:
@@ -118,7 +121,6 @@ func die():
 
 @onready var barra_vida = $CanvasLayer/barraVida
 
-# 2. Precargar las imágenes (ASEGÚRATE DE PONER LA RUTA CORRECTA DE TUS ASSETS)
 var img_100 = preload("res://barraVida/1barra.png")
 var img_75 = preload("res://barraVida/2barra.png")
 var img_50 = preload("res://barraVida/3barra.png")

@@ -14,13 +14,15 @@ script = ExtResource("1_e6ans")
 
 [node name="hbox" type="HBoxContainer" parent="." unique_id=1394476004]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 7.0
+offset_top = 39.0
+offset_right = 33.0
+offset_bottom = 72.0
 
 [node name="lbl_contador" type="Label" parent="hbox" unique_id=1293102140]
 layout_mode = 2
 
 [node name="imagen" type="Sprite2D" parent="hbox" unique_id=841649936]
-position = Vector2(35.999996, 70.999985)
+position = Vector2(49.999992, 21.000002)
 scale = Vector2(0.39808917, 0.36826348)
 texture = ExtResource("1_ndacp")
