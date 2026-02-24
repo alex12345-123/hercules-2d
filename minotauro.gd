@@ -1,69 +1,67 @@
 extends CharacterBody2D
 
-@onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
+@onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
+@onready var ani = $ani_minotauro
+@onready var area_vision = $Area2D
 
 @export var speed = 100
-@export var attack_range = 150
-@export var damage = 10
-@export var attack_cooldown = 1.0
+@export var damage_al_jugador = 10
 
 var sentido = 1
-var player = null
-var can_attack = true
-var attacking = false
+var atacando = false
 
 func _ready():
-	player = get_tree().get_first_node_in_group("jugadores")
-	$Area2D.monitoring = false
-	add_to_group("enemies")
+	area_vision.monitoring = true  
 
-func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
+func _physics_process(delta):
 
-	if not attacking:
-		patrol() # El minotauro siempre patrulla hasta que choque con algo
+	
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	
+	for body in area_vision.get_overlapping_bodies():
+		if body.is_in_group("jugadores") and not atacando:
+			hacer_ataque(body)
+
+	
+	if atacando:
+		velocity.x = 0
+	else:
+		patrullar()
 
 	move_and_slide()
 
-func patrol():
-	if is_on_wall():
+
+func patrullar():
+
+	if is_on_wall() or (sentido == 1 and not $derecha.is_colliding()) or (sentido == -1 and not $izquierda.is_colliding()):
 		sentido = -sentido
 
-	if sentido == 1 and $derecha.is_colliding():
-		velocity.x = speed
-		$ani_minotauro.flip_h = false
-		$ani_minotauro.play("walk")
-	elif sentido == -1 and $izquierda.is_colliding():
-		velocity.x = -speed
-		$ani_minotauro.flip_h = true
-		$ani_minotauro.play("walk")
-	else:
-		sentido = -sentido
+	velocity.x = sentido * speed
 
-func start_attack(objetivo):
-	attacking = true
-	can_attack = false
+	ani.play("walk")
+	ani.flip_h = (sentido == -1)
+	area_vision.scale.x = sentido
+
+
+
+func hacer_ataque(objetivo):
+
+	atacando = true
 	velocity.x = 0
-	$ani_minotauro.play("attack")
-	$Area2D.monitoring = true
+	ani.play("attack")
 
-	if objetivo.has_method("recibir_dano"):
-		objetivo.recibir_dano(damage)
 
-func _on_ani_minotauro_animation_finished():
-	if $ani_minotauro.animation == "attack":
-		attacking = false
-		# Esperar un segundo antes de poder volver a atacar
-		await get_tree().create_timer(attack_cooldown).timeout
-		can_attack = true
+	await get_tree().create_timer(0.25).timeout
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("jugadores"):
-		if can_attack and not attacking:
-			iniciar_ataque_por_choque(body)
+	if objetivo and objetivo.has_method("take_damage"):
+		objetivo.take_damage(damage_al_jugador)
 
-func iniciar_ataque_por_choque(objetivo):
-	attacking = true
-	can_attack = false
-	velocity.x = 0 # Se detiene para golpear
-	$ani_minotauro.play("attack")
+	
+	await ani.animation_finished
+
+	
+	await get_tree().create_timer(0.5).timeout
+
+	atacando = false

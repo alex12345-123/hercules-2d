@@ -286,7 +286,7 @@ size = Vector2(31, 103.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jso86"]
 size = Vector2(51, 42)
 
-[node name="player" type="CharacterBody2D" unique_id=2028694410]
+[node name="player" type="CharacterBody2D" unique_id=2028694410 groups=["jugadores"]]
 position = Vector2(-160, 11)
 script = ExtResource("1_xww6x")
 

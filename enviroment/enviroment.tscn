@@ -48,7 +48,7 @@ position = Vector2(5685, 240)
 shape = SubResource("CapsuleShape2D_nu1pp")
 
 [node name="minotauro" parent="." unique_id=643951197 instance=ExtResource("7_0jamg")]
-position = Vector2(5304, 215)
+position = Vector2(3180, 333)
 
 [node name="medallones" type="Node2D" parent="." unique_id=1179448181]
 
