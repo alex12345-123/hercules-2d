@@ -281,7 +281,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qck5"]
-size = Vector2(92.5, 103.25)
+size = Vector2(31, 103.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jso86"]
 size = Vector2(51, 42)
@@ -295,11 +295,9 @@ position = Vector2(540.9235, 332.59952)
 scale = Vector2(0.15384823, 0.14086545)
 sprite_frames = SubResource("SpriteFrames_2la1n")
 animation = &"puño"
-frame = 13
-frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292]
-position = Vector2(548, 321)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292 groups=["jugadores"]]
+position = Vector2(541.5, 321)
 shape = SubResource("RectangleShape2D_5qck5")
 
 [node name="ataque" type="Area2D" parent="." unique_id=1563765113]
