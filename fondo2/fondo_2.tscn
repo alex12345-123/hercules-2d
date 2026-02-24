@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ytvcyc7jxv2w"]
+
+[ext_resource type="PackedScene" uid="uid://ccutq7jnepyd6" path="res://hercules/player.tscn" id="1_cyugg"]
+[ext_resource type="PackedScene" uid="uid://cf11t0233xw06" path="res://floor_infr/floor_infr.tscn" id="2_pq3x3"]
+[ext_resource type="PackedScene" uid="uid://dp4218tyhlfro" path="res://fondo2/fondo_infr.tscn" id="3_wu4yp"]
+
+[node name="fondo2" type="Node2D" unique_id=1387716119]
+
+[node name="player" parent="." unique_id=2028694410 instance=ExtResource("1_cyugg")]
+position = Vector2(-417, 29)
+
+[node name="floor_infr" parent="." unique_id=622006269 instance=ExtResource("2_pq3x3")]
+
+[node name="fondo_infr" parent="." unique_id=1660706684 instance=ExtResource("3_wu4yp")]

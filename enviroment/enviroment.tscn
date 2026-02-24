@@ -4,10 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://gvneu0mxd6x" path="res://fondo/fondo.tscn" id="2_8l5cr"]
 [ext_resource type="PackedScene" uid="uid://ccutq7jnepyd6" path="res://hercules/player.tscn" id="3_lh0iu"]
 [ext_resource type="PackedScene" uid="uid://dlvv5djd4o0p8" path="res://obstaculo/area_2d.tscn" id="4_5x5yc"]
+[ext_resource type="Texture2D" uid="uid://c5qvt66r5400t" path="res://puerta/img/cueva.png" id="5_nu1pp"]
+[ext_resource type="Script" uid="uid://bvfgg4ea87wll" path="res://enviroment/change_scene.gd" id="6_ckdwk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nu1pp"]
+radius = 22.0
+height = 44.0
 
 [node name="enviroment" type="Node2D" unique_id=366377024]
 
 [node name="fondo" parent="." unique_id=1879355558 instance=ExtResource("2_8l5cr")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1522706823]
+position = Vector2(5686.75, 224.00002)
+scale = Vector2(0.68750054, 0.39444438)
+texture = ExtResource("5_nu1pp")
 
 [node name="player" parent="." unique_id=2028694410 instance=ExtResource("3_lh0iu")]
 position = Vector2(-486, 251)
@@ -25,3 +36,13 @@ position = Vector2(484, -55)
 position = Vector2(933, -75)
 
 [node name="Area2D3" parent="Area2D" unique_id=599070128 instance=ExtResource("4_5x5yc")]
+
+[node name="change_scene" type="Area2D" parent="." unique_id=955626647]
+script = ExtResource("6_ckdwk")
+next_scene_path = "res://fondo2/fondo_2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_scene" unique_id=1287836129]
+position = Vector2(5685, 240)
+shape = SubResource("CapsuleShape2D_nu1pp")
+
+[connection signal="body_entered" from="change_scene" to="change_scene" method="_on_body_entered"]
