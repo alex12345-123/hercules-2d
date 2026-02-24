@@ -14,6 +14,7 @@ radius = 22.0
 height = 44.0
 
 [node name="enviroment" type="Node2D" unique_id=366377024]
+position = Vector2(80, -12)
 
 [node name="fondo" parent="." unique_id=1879355558 instance=ExtResource("2_8l5cr")]
 
@@ -48,7 +49,7 @@ position = Vector2(5685, 240)
 shape = SubResource("CapsuleShape2D_nu1pp")
 
 [node name="minotauro" parent="." unique_id=643951197 instance=ExtResource("7_0jamg")]
-position = Vector2(3180, 333)
+position = Vector2(5355, 212)
 
 [node name="medallones" type="Node2D" parent="." unique_id=1179448181]
 
