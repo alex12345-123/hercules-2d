@@ -18,12 +18,13 @@ var health := max_health
 
 @onready var ani_player = $AnimatedSprite2D
 @onready var attack_area = $ataque
-@onready var health_bar = $CanvasLayer/ProgressBar
+@onready var health_bar = $CanvasLayer/barraVida
 
 
 func _ready():
 	attack_area.monitoring = false
-	update_health_bar()
+	add_to_group("jugadores")
+	if contador: contador.actualizar(0) # Esto evita que se cierre el juego
 
 
 func _physics_process(delta: float) -> void:
@@ -106,7 +107,6 @@ func _on_ataque_body_entered(body: Node2D) -> void:
 func take_damage(amount: int):
 	health -= amount
 	health = clamp(health, 0, max_health)
-	update_health_bar()
 
 	if health <= 0:
 		die()
@@ -116,10 +116,6 @@ func die():
 	queue_free()
 
 
-func update_health_bar():
-	if health_bar:
-		health_bar.value = health
-		
 @onready var barra_vida = $CanvasLayer/barraVida
 
 # 2. Precargar las imágenes (ASEGÚRATE DE PONER LA RUTA CORRECTA DE TUS ASSETS)
@@ -155,3 +151,11 @@ func actualizar_interfaz_vida():
 		barra_vida.texture = img_25
 	else:
 		barra_vida.texture = null
+
+@onready var contador: Control = $canva_contador/contador
+
+var monedas: int = 0
+
+func add_moneda():
+	monedas+=1
+	contador.actualizar(monedas)

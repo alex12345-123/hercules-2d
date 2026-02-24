@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://bvjapn7wbe0xq" path="res://hercules/img/19_jump.png" id="54_100uu"]
 [ext_resource type="Texture2D" uid="uid://4kpfc76vf1p3" path="res://hercules/img/20_jump.png" id="55_htr55"]
 [ext_resource type="Texture2D" uid="uid://s8foovptjfby" path="res://barraVida/1barra.png" id="64_eisah"]
+[ext_resource type="PackedScene" uid="uid://d2oao47f5clxe" path="res://contador/contador.tscn" id="65_xcgcw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2la1n"]
 animations = [{
@@ -324,5 +325,10 @@ offset_right = 159.0
 offset_bottom = 45.0
 texture = ExtResource("64_eisah")
 expand_mode = 1
+
+[node name="canva_contador" type="CanvasLayer" parent="." unique_id=1459283553]
+
+[node name="contador" parent="canva_contador" unique_id=518552665 instance=ExtResource("65_xcgcw")]
+offset_left = -1.0
 
 [connection signal="body_entered" from="ataque" to="." method="_on_ataque_body_entered"]
