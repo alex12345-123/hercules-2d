@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://3euefpfd3ymf"]
+
+[ext_resource type="Script" uid="uid://do8iyn8ctruo" path="res://minotauro.gd" id="1_g2h6k"]
+[ext_resource type="Texture2D" uid="uid://cgkq0rcgnw4k6" path="res://enemigos/img/minoattack1.png" id="2_q2bu2"]
+[ext_resource type="Texture2D" uid="uid://crr6w7prku4x0" path="res://enemigos/img/minoattack2.png" id="3_pnslm"]
+[ext_resource type="Texture2D" uid="uid://81u13bcewf31" path="res://enemigos/img/minoattack3.png" id="4_mg1yq"]
+[ext_resource type="Texture2D" uid="uid://ilk8tl55b2jc" path="res://enemigos/img/minoattack4.png" id="5_jekud"]
+[ext_resource type="Texture2D" uid="uid://bmaljwxcc7m54" path="res://enemigos/img/minoattack5.png" id="6_vi51t"]
+[ext_resource type="Texture2D" uid="uid://l75qouycbdv6" path="res://enemigos/img/minowalk1.png" id="7_d8yrc"]
+[ext_resource type="Texture2D" uid="uid://bmuupll74km00" path="res://enemigos/img/minowalk2.png" id="8_s3jtm"]
+[ext_resource type="Texture2D" uid="uid://dv4qsfm8oeqi" path="res://enemigos/img/minowalk3.png" id="9_erb6b"]
+[ext_resource type="Texture2D" uid="uid://dwpohibu7ihtt" path="res://enemigos/img/minowalk4.png" id="10_bqfku"]
+[ext_resource type="Texture2D" uid="uid://njajc5gbjxi1" path="res://enemigos/img/minowalk5.png" id="11_6unv0"]
+[ext_resource type="Texture2D" uid="uid://ckkuaeba7b3lf" path="res://enemigos/img/minowalk6.png" id="12_0x6li"]
+[ext_resource type="Texture2D" uid="uid://c72apq6eopexu" path="res://enemigos/img/minowalk7.png" id="13_r2lvq"]
+[ext_resource type="Texture2D" uid="uid://d1wi776uo5vqg" path="res://enemigos/img/minowalk8.png" id="14_bhno3"]
+[ext_resource type="Texture2D" uid="uid://cqpt6q1kkxxkk" path="res://enemigos/img/minowalk9.png" id="15_qk48d"]
+[ext_resource type="Texture2D" uid="uid://d0tp0kje8xyf4" path="res://enemigos/img/minowalk10.png" id="16_pvmy5"]
+[ext_resource type="Texture2D" uid="uid://dre3aaeult747" path="res://enemigos/img/minowalk11.png" id="17_3xrab"]
+[ext_resource type="Texture2D" uid="uid://dojy7o2y6cbw1" path="res://enemigos/img/minowalk12.png" id="18_8iqwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2mrv"]
+size = Vector2(44, 87)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yd8dh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q2bu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pnslm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mg1yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jekud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vi51t")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d8yrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s3jtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_erb6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bqfku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6unv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0x6li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r2lvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bhno3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qk48d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pvmy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3xrab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8iqwx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="minotauro" type="CharacterBody2D" unique_id=643951197]
+script = ExtResource("1_g2h6k")
+
+[node name="col_minotauro" type="CollisionShape2D" parent="." unique_id=227388321]
+position = Vector2(13, -1.5)
+shape = SubResource("RectangleShape2D_r2mrv")
+
+[node name="ani_minotauro" type="AnimatedSprite2D" parent="." unique_id=1625085920]
+position = Vector2(3, 1)
+sprite_frames = SubResource("SpriteFrames_yd8dh")
+animation = &"walk"
+frame = 6
+frame_progress = 0.23496774
+
+[node name="derecha" type="RayCast2D" parent="." unique_id=433300416]
+position = Vector2(35, -1)
+
+[node name="izquierda" type="RayCast2D" parent="." unique_id=618467222]
+position = Vector2(-9, -1)
