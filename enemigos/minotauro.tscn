@@ -86,6 +86,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2h6k"]
+size = Vector2(75, 81)
+
 [node name="minotauro" type="CharacterBody2D" unique_id=643951197]
 script = ExtResource("1_g2h6k")
 
@@ -96,12 +99,21 @@ shape = SubResource("RectangleShape2D_r2mrv")
 [node name="ani_minotauro" type="AnimatedSprite2D" parent="." unique_id=1625085920]
 position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_yd8dh")
-animation = &"walk"
-frame = 6
-frame_progress = 0.23496774
+animation = &"attack"
+frame = 4
+frame_progress = 1.0
 
 [node name="derecha" type="RayCast2D" parent="." unique_id=433300416]
 position = Vector2(35, -1)
 
 [node name="izquierda" type="RayCast2D" parent="." unique_id=618467222]
 position = Vector2(-9, -1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1840091450]
+
+[node name="col_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1640815739]
+position = Vector2(27.5, 1.5)
+shape = SubResource("RectangleShape2D_g2h6k")
+
+[connection signal="animation_finished" from="ani_minotauro" to="." method="_on_ani_minotauro_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
