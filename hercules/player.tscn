@@ -164,7 +164,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"puño",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,7 +293,9 @@ script = ExtResource("1_xww6x")
 position = Vector2(540.9235, 332.59952)
 scale = Vector2(0.15384823, 0.14086545)
 sprite_frames = SubResource("SpriteFrames_2la1n")
-animation = &"reposo"
+animation = &"puño"
+frame = 13
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=356203292]
 position = Vector2(548, 321)
