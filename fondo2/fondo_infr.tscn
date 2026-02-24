@@ -8,7 +8,7 @@
 motion_mirroring = Vector2(1152, 0)
 
 [node name="sprt_infr" type="Sprite2D" parent="layer_infr" unique_id=508261993]
-position = Vector2(0, -137)
-scale = Vector2(0.75, 0.8115233)
+position = Vector2(0, -275)
+scale = Vector2(0.75, 1.0322266)
 texture = ExtResource("1_4h5r4")
 centered = false

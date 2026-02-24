@@ -9,6 +9,7 @@ motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1143, 0)
 
 [node name="sprt_fondo" type="Sprite2D" parent="layer_fondo" unique_id=1156199301]
-scale = Vector2(0.75, 0.73046875)
+position = Vector2(0, -77)
+scale = Vector2(0.75, 0.80566406)
 texture = ExtResource("1_0qi51")
 centered = false
