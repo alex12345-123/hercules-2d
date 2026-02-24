@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2oao47f5clxe"]
+
+[ext_resource type="Script" uid="uid://clnwoko0pjw4p" path="res://contador/contador.gd" id="1_e6ans"]
+[ext_resource type="Texture2D" uid="uid://7n4hro7020i6" path="res://coleccionable/img/medallon1-removebg-preview.png" id="1_ndacp"]
+
+[node name="contador" type="Control" unique_id=518552665]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e6ans")
+
+[node name="hbox" type="HBoxContainer" parent="." unique_id=1394476004]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lbl_contador" type="Label" parent="hbox" unique_id=1293102140]
+layout_mode = 2
+
+[node name="imagen" type="Sprite2D" parent="hbox" unique_id=841649936]
+position = Vector2(35.999996, 70.999985)
+scale = Vector2(0.39808917, 0.36826348)
+texture = ExtResource("1_ndacp")

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cvhvyh8wj87w8"]
+
+[ext_resource type="Script" uid="uid://cf75hrhniw6o7" path="res://coleccionable/coleccionable.gd" id="1_1ioyo"]
+[ext_resource type="Texture2D" uid="uid://7n4hro7020i6" path="res://coleccionable/img/medallon1-removebg-preview.png" id="2_q2w2p"]
+[ext_resource type="Texture2D" uid="uid://6spnca7f6h8l" path="res://coleccionable/img/medallon2-removebg-preview.png" id="3_euc0m"]
+[ext_resource type="Texture2D" uid="uid://dd7p1pbllnc6e" path="res://coleccionable/img/medallon3-removebg-preview.png" id="4_fm31d"]
+[ext_resource type="Texture2D" uid="uid://bv28lb6thn0fs" path="res://coleccionable/img/medallon4-removebg-preview.png" id="5_d61s2"]
+[ext_resource type="Texture2D" uid="uid://20h6w3muyaq0" path="res://coleccionable/img/medallon5-removebg-preview.png" id="6_4aosm"]
+[ext_resource type="Texture2D" uid="uid://cstohd8nqd55v" path="res://coleccionable/img/medallon6-removebg-preview.png" id="7_1ji54"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cc4vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q2w2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_euc0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fm31d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d61s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4aosm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ji54")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocycm"]
+radius = 34.48188
+
+[node name="coleccionable" type="Area2D" unique_id=93092270]
+script = ExtResource("1_1ioyo")
+
+[node name="ani_medallon" type="AnimatedSprite2D" parent="." unique_id=1359312916]
+position = Vector2(50.000008, 95)
+scale = Vector2(0.51821196, 0.39197528)
+sprite_frames = SubResource("SpriteFrames_cc4vi")
+frame_progress = 0.38413197
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1360077034]
+position = Vector2(49, 97)
+shape = SubResource("CircleShape2D_ocycm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
