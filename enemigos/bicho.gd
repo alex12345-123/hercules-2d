@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
-@onready var ani = $ani_minotauro
+@onready var ani = $ani_bicho
 @onready var area_vision = $Area2D
 
 @export var speed = 100
@@ -43,16 +43,16 @@ func patrullar():
 
 	velocity.x = sentido * speed
 
-	ani.play("walk")
-	ani.flip_h = (sentido == -1)
-	area_vision.scale.x = sentido
+	ani.play("reposo")
+	ani.flip_h = (sentido == 1)
+	
 
 
 func hacer_ataque(objetivo):
 
 	atacando = true
 	velocity.x = 0
-	ani.play("attack")
+	ani.play("ataque")
 
 	await get_tree().create_timer(0.25).timeout
 
@@ -67,7 +67,7 @@ func hacer_ataque(objetivo):
 
 func take_damage(amount):
 	health -= amount
-	print("Minotauro herido! Vida restante: ", health)
+	print("Bicho herido! Vida restante: ", health)
 
 	ani.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout

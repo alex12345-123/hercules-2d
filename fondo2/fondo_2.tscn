@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ccutq7jnepyd6" path="res://hercules/player.tscn" id="1_cyugg"]
 [ext_resource type="PackedScene" uid="uid://cf11t0233xw06" path="res://floor_infr/floor_infr.tscn" id="2_pq3x3"]
 [ext_resource type="PackedScene" uid="uid://dp4218tyhlfro" path="res://fondo2/fondo_infr.tscn" id="3_wu4yp"]
+[ext_resource type="PackedScene" uid="uid://bpex8ev1pfnod" path="res://enemigos/bicho.tscn" id="4_pq3x3"]
 
 [node name="fondo2" type="Node2D" unique_id=1387716119]
 
@@ -12,3 +13,6 @@ position = Vector2(-417, 29)
 [node name="floor_infr" parent="." unique_id=622006269 instance=ExtResource("2_pq3x3")]
 
 [node name="fondo_infr" parent="." unique_id=1660706684 instance=ExtResource("3_wu4yp")]
+
+[node name="bicho" parent="." unique_id=85703553 instance=ExtResource("4_pq3x3")]
+position = Vector2(602, 489)

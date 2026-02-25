@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bpex8ev1pfnod"]
+
+[ext_resource type="Texture2D" uid="uid://ckr71uu3gm22o" path="res://enemigos/img/1_ataque.png" id="1_d26cr"]
+[ext_resource type="Script" uid="uid://l188hn2dgfqi" path="res://enemigos/bicho.gd" id="1_v7hd8"]
+[ext_resource type="Texture2D" uid="uid://cydt25w44hoou" path="res://enemigos/img/2_ataque.png" id="2_v7hd8"]
+[ext_resource type="Texture2D" uid="uid://bewt88nuooa1v" path="res://enemigos/img/3_ataque.png" id="3_0ap2w"]
+[ext_resource type="Texture2D" uid="uid://djq1083ceeakl" path="res://enemigos/img/4_ataque.png" id="4_r4j7o"]
+[ext_resource type="Texture2D" uid="uid://bernrmr2n7a8k" path="res://enemigos/img/1_muerte.png" id="5_y8pgv"]
+[ext_resource type="Texture2D" uid="uid://bpmso22hpsp0y" path="res://enemigos/img/2_muerte.png" id="6_5cg0i"]
+[ext_resource type="Texture2D" uid="uid://cbe11nrqk7drp" path="res://enemigos/img/3_muerte.png" id="7_4v2vo"]
+[ext_resource type="Texture2D" uid="uid://cnetdaeq0lmg6" path="res://enemigos/img/4_muerte.png" id="8_h7xop"]
+[ext_resource type="Texture2D" uid="uid://hs5ekoxkcigi" path="res://enemigos/img/1_reposo.png" id="9_yufmj"]
+[ext_resource type="Texture2D" uid="uid://dk0iwbsq381yf" path="res://enemigos/img/2_reposo.png" id="10_xa6pt"]
+[ext_resource type="Texture2D" uid="uid://be8pfm2pyk2li" path="res://enemigos/img/3_reposo.png" id="11_mbgb2"]
+[ext_resource type="Texture2D" uid="uid://bt1mlmlrqgbuw" path="res://enemigos/img/4_reposo.png" id="12_wma6r"]
+[ext_resource type="Texture2D" uid="uid://dqy6gwt5dkymy" path="res://enemigos/img/5_reposo.png" id="13_jjdce"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qxn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d26cr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v7hd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ap2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r4j7o")
+}],
+"loop": false,
+"name": &"ataque",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y8pgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5cg0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4v2vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h7xop")
+}],
+"loop": true,
+"name": &"muerte",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yufmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xa6pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mbgb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wma6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jjdce")
+}],
+"loop": true,
+"name": &"reposo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hni8k"]
+size = Vector2(87, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_refp4"]
+size = Vector2(102, 114)
+
+[node name="bicho" type="CharacterBody2D" unique_id=85703553]
+script = ExtResource("1_v7hd8")
+
+[node name="ani_bicho" type="AnimatedSprite2D" parent="." unique_id=2046389037]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2qxn1")
+animation = &"ataque"
+
+[node name="col_bicho" type="CollisionShape2D" parent="." unique_id=675926464]
+position = Vector2(2.5, 6.5)
+shape = SubResource("RectangleShape2D_hni8k")
+
+[node name="derecha" type="RayCast2D" parent="." unique_id=345717196]
+position = Vector2(46, -2)
+target_position = Vector2(0, 70)
+
+[node name="izquierda" type="RayCast2D" parent="." unique_id=33730949]
+position = Vector2(-41, -2)
+target_position = Vector2(0, 71)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1793835462]
+
+[node name="col_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1868114218]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_refp4")
+
+[connection signal="animation_finished" from="ani_bicho" to="." method="_on_ani_bicho_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
