@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var jump_force = -700.0
 @export var gravity_scale = 2.0
 
-@export var damage = 1
+@export var damage = 255
 @export var max_health := 100
 var health := 100
 var attacking = false

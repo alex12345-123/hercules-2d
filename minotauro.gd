@@ -6,12 +6,15 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var damage_al_jugador = 10
+@export var health = 50 
 
 var sentido = 1
 var atacando = false
 
 func _ready():
 	area_vision.monitoring = true  
+	add_to_group("enemies") 
+
 
 func _physics_process(delta):
 
@@ -65,3 +68,17 @@ func hacer_ataque(objetivo):
 	await get_tree().create_timer(0.5).timeout
 
 	atacando = false
+
+func take_damage(amount):
+	health -= amount
+	print("Minotauro herido! Vida restante: ", health)
+	
+	ani.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	ani.modulate = Color.WHITE
+	
+	if health <= 0:
+		die()
+
+func die():
+	queue_free()
