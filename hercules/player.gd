@@ -109,17 +109,18 @@ func take_damage(amount: int):
 		die()
 
 func actualizar_interfaz_vida():
-	if not barra_vida: return
+	if not barra_vida:
+		return
 	
-	var porcentaje = (float(health) / max_health) * 100.0
+	var ratio = float(health) / max_health
 	
-	if porcentaje >= 100:
+	if ratio == 1.0:
 		barra_vida.texture = img_100
-	elif porcentaje >= 75:
+	elif ratio >= 0.75:
 		barra_vida.texture = img_75
-	elif porcentaje >= 50:
+	elif ratio >= 0.5:
 		barra_vida.texture = img_50
-	elif porcentaje > 0:
+	elif ratio > 0:
 		barra_vida.texture = img_25
 	else:
 		barra_vida.texture = null
@@ -131,3 +132,8 @@ func add_moneda():
 	monedas += 1
 	if contador: 
 		contador.actualizar(monedas)
+		
+func add_vida(amount: int):
+	health += amount
+	health = clamp(health, 0, max_health)
+	actualizar_interfaz_vida()

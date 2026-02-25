@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dmqb0hbcdyn3d"]
+
+[ext_resource type="Script" uid="uid://bvx8iwier4477" path="res://coleccionable corazon/coleccionable_2.gd" id="1_0cmx0"]
+[ext_resource type="Texture2D" uid="uid://6p36vugd5bnp" path="res://coleccionable corazon/img/CORAZON1.png" id="1_fmevf"]
+[ext_resource type="Texture2D" uid="uid://c57nwhb7m7c71" path="res://coleccionable corazon/img/CORAZON2.png" id="2_0cmx0"]
+[ext_resource type="Texture2D" uid="uid://d2ti3paaytwol" path="res://coleccionable corazon/img/CORAZON3.png" id="3_3tdjj"]
+[ext_resource type="Texture2D" uid="uid://c1dpxfusix0av" path="res://coleccionable corazon/img/CORAZON4.png" id="4_rnm3a"]
+[ext_resource type="Texture2D" uid="uid://b364rqqip7h5y" path="res://coleccionable corazon/img/CORAZON5.png" id="5_v327u"]
+[ext_resource type="Texture2D" uid="uid://ce1g3arxmnnrc" path="res://coleccionable corazon/img/CORAZON6.png" id="6_7rbjb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxjyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fmevf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0cmx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3tdjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rnm3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v327u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7rbjb")
+}],
+"loop": true,
+"name": &"cora",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw7a3"]
+radius = 28.160255
+
+[node name="coleccionable2" type="Area2D" unique_id=1166284727]
+script = ExtResource("1_0cmx0")
+
+[node name="ani_cora" type="AnimatedSprite2D" parent="." unique_id=1946742059]
+position = Vector2(3, 4.999996)
+scale = Vector2(0.5928571, 0.58092487)
+sprite_frames = SubResource("SpriteFrames_uxjyh")
+animation = &"cora"
+frame = 5
+frame_progress = 0.14551373
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=505134329]
+position = Vector2(-5, 7)
+shape = SubResource("CircleShape2D_xw7a3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

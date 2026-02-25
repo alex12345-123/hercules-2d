@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://gvneu0mxd6x" path="res://fondo/fondo.tscn" id="2_8l5cr"]
 [ext_resource type="PackedScene" uid="uid://ccutq7jnepyd6" path="res://hercules/player.tscn" id="3_lh0iu"]
 [ext_resource type="Texture2D" uid="uid://c5qvt66r5400t" path="res://puerta/img/cueva.png" id="5_nu1pp"]
-[ext_resource type="Script" path="res://enviroment/change_scene.gd" id="6_ckdwk"]
+[ext_resource type="Script" uid="uid://bvfgg4ea87wll" path="res://enviroment/change_scene.gd" id="6_ckdwk"]
 [ext_resource type="PackedScene" uid="uid://3euefpfd3ymf" path="res://enemigos/minotauro.tscn" id="7_0jamg"]
 [ext_resource type="PackedScene" uid="uid://cvhvyh8wj87w8" path="res://coleccionable/coleccionable.tscn" id="8_fxqiw"]
+[ext_resource type="PackedScene" uid="uid://dmqb0hbcdyn3d" path="res://coleccionable corazon/coleccionable_2.tscn" id="8_o107x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nu1pp"]
 radius = 22.0
@@ -55,5 +56,10 @@ position = Vector2(2957, 251)
 
 [node name="coleccionable5" parent="medallones" unique_id=1631641209 instance=ExtResource("8_fxqiw")]
 position = Vector2(1254, 491)
+
+[node name="cora" type="Node2D" parent="." unique_id=1523936038]
+
+[node name="coleccionable2" parent="cora" unique_id=1166284727 instance=ExtResource("8_o107x")]
+position = Vector2(5523, 210)
 
 [connection signal="body_entered" from="change_scene" to="change_scene" method="_on_body_entered"]
