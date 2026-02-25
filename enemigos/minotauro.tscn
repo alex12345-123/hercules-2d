@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d0tp0kje8xyf4" path="res://enemigos/img/minowalk10.png" id="16_pvmy5"]
 [ext_resource type="Texture2D" uid="uid://dre3aaeult747" path="res://enemigos/img/minowalk11.png" id="17_3xrab"]
 [ext_resource type="Texture2D" uid="uid://dojy7o2y6cbw1" path="res://enemigos/img/minowalk12.png" id="18_8iqwx"]
+[ext_resource type="Texture2D" uid="uid://dbeqrh3rumery" path="res://enemigos/barraVidaEne/vida100.png" id="19_q2bu2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2mrv"]
 size = Vector2(51, 82)
@@ -115,6 +116,14 @@ monitoring = false
 [node name="col_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1640815739]
 position = Vector2(8, 2)
 shape = SubResource("RectangleShape2D_g2h6k")
+
+[node name="barraVida" type="TextureRect" parent="." unique_id=886501541]
+offset_left = -35.0
+offset_top = -62.0
+offset_right = 58.0
+offset_bottom = -44.0
+texture = ExtResource("19_q2bu2")
+expand_mode = 1
 
 [connection signal="animation_finished" from="ani_minotauro" to="." method="_on_ani_minotauro_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

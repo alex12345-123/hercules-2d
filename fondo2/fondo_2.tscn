@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cf11t0233xw06" path="res://floor_infr/floor_infr.tscn" id="2_pq3x3"]
 [ext_resource type="PackedScene" uid="uid://dp4218tyhlfro" path="res://fondo2/fondo_infr.tscn" id="3_wu4yp"]
 [ext_resource type="PackedScene" uid="uid://cvhvyh8wj87w8" path="res://coleccionable/coleccionable.tscn" id="4_pq3x3"]
+[ext_resource type="PackedScene" uid="uid://bpex8ev1pfnod" path="res://enemigos/bicho.tscn" id="5_wu4yp"]
 
 [node name="fondo2" type="Node2D" unique_id=1387716119]
 
@@ -17,3 +18,6 @@ tile_map_data = PackedByteArray("AAAAABoAAAABAAcAAAAAABsAAAABAAgAAAAAABwAAAABAAk
 
 [node name="coleccionable" parent="." unique_id=93092270 instance=ExtResource("4_pq3x3")]
 position = Vector2(2075, 143)
+
+[node name="bicho" parent="." unique_id=85703553 instance=ExtResource("5_wu4yp")]
+position = Vector2(830, 562)

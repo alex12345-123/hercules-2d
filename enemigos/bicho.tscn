@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://be8pfm2pyk2li" path="res://enemigos/img/3_reposo.png" id="11_mbgb2"]
 [ext_resource type="Texture2D" uid="uid://bt1mlmlrqgbuw" path="res://enemigos/img/4_reposo.png" id="12_wma6r"]
 [ext_resource type="Texture2D" uid="uid://dqy6gwt5dkymy" path="res://enemigos/img/5_reposo.png" id="13_jjdce"]
+[ext_resource type="Texture2D" uid="uid://dbeqrh3rumery" path="res://enemigos/barraVidaEne/vida100.png" id="15_0ap2w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qxn1"]
 animations = [{
@@ -47,9 +48,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_h7xop")
 }],
-"loop": true,
+"loop": false,
 "name": &"muerte",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,7 +85,7 @@ script = ExtResource("1_v7hd8")
 [node name="ani_bicho" type="AnimatedSprite2D" parent="." unique_id=2046389037]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2qxn1")
-animation = &"ataque"
+animation = &"muerte"
 
 [node name="col_bicho" type="CollisionShape2D" parent="." unique_id=675926464]
 position = Vector2(2.5, 6.5)
@@ -103,6 +104,14 @@ target_position = Vector2(0, 71)
 [node name="col_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1868114218]
 position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_refp4")
+
+[node name="barraVida" type="TextureRect" parent="." unique_id=2058041511]
+offset_left = -56.0
+offset_top = -73.0
+offset_right = 57.0
+offset_bottom = -57.0
+texture = ExtResource("15_0ap2w")
+expand_mode = 1
 
 [connection signal="animation_finished" from="ani_bicho" to="." method="_on_ani_bicho_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
