@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d22po5kv1px0d"]
+
+[ext_resource type="Script" uid="uid://crknnkcmgx7bp" path="res://lanza.gd" id="1_djp0q"]
+[ext_resource type="Texture2D" uid="uid://c82ineitrk215" path="res://enmigo_estatico_lanza/img/lanza.png" id="2_qbe2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuwtn"]
+size = Vector2(145, 32.5)
+
+[node name="lanza" type="Area2D" unique_id=1518960613]
+script = ExtResource("1_djp0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=714427590]
+position = Vector2(2, 1)
+scale = Vector2(0.129069, 0.09851075)
+texture = ExtResource("2_qbe2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1471548508]
+position = Vector2(-0.5, 17.25)
+shape = SubResource("RectangleShape2D_vuwtn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

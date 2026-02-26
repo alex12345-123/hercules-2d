@@ -15,6 +15,24 @@ run/main_scene="uid://bprybtjhqi04d"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://barraVida/": "purple",
+"res://coleccionable corazon/": "blue",
+"res://coleccionable/": "blue",
+"res://contador/": "blue",
+"res://enemigos/": "red",
+"res://enmigo_estatico_lanza/": "red",
+"res://enviroment/": "green",
+"res://floor/": "green",
+"res://floor_infr/": "green",
+"res://fondo/": "green",
+"res://fondo2/": "green",
+"res://hercules/": "yellow",
+"res://puerta/": "gray"
+}
+
 [input]
 
 mover_izquierda={

@@ -35,14 +35,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw7a3"]
-radius = 28.160255
+radius = 21.095022
 
 [node name="coleccionable2" type="Area2D" unique_id=1166284727]
 script = ExtResource("1_0cmx0")
 
 [node name="ani_cora" type="AnimatedSprite2D" parent="." unique_id=1946742059]
-position = Vector2(3, 4.999996)
-scale = Vector2(0.5928571, 0.58092487)
+position = Vector2(-0.99999905, 1.0000033)
+scale = Vector2(0.37142858, 0.3930636)
 sprite_frames = SubResource("SpriteFrames_uxjyh")
 animation = &"cora"
 frame = 5
