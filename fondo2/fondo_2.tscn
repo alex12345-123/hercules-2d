@@ -5,11 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://dp4218tyhlfro" path="res://fondo2/fondo_infr.tscn" id="3_wu4yp"]
 [ext_resource type="PackedScene" uid="uid://cvhvyh8wj87w8" path="res://coleccionable/coleccionable.tscn" id="4_pq3x3"]
 [ext_resource type="PackedScene" uid="uid://bpex8ev1pfnod" path="res://enemigos/bicho.tscn" id="5_wu4yp"]
+[ext_resource type="Texture2D" uid="uid://d1ggjbx4xrxfy" path="res://fondo2/img/PuertaFinal.png" id="6_lh5xm"]
+[ext_resource type="Script" uid="uid://bokqfwyx2s1j" path="res://fondo2/change_scene.gd" id="7_ak5uq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kuoft"]
+radius = 23.0
+height = 52.0
 
 [node name="fondo2" type="Node2D" unique_id=1387716119]
 
 [node name="player" parent="." unique_id=2028694410 instance=ExtResource("1_cyugg")]
-position = Vector2(-417, 29)
+position = Vector2(-366, 52)
 
 [node name="floor_infr" parent="." unique_id=622006269 instance=ExtResource("2_pq3x3")]
 position = Vector2(-25, -13)
@@ -21,7 +27,22 @@ tile_map_data = PackedByteArray("AAAAABoAAAACAAgAAAAAABsAAAACAAgAAAAAABwAAAACAAg
 position = Vector2(2075, 143)
 
 [node name="bicho" parent="." unique_id=85703553 instance=ExtResource("5_wu4yp")]
-position = Vector2(830, 562)
+position = Vector2(851, 562)
 
 [node name="bicho2" parent="." unique_id=2098962402 instance=ExtResource("5_wu4yp")]
 position = Vector2(6412, 561)
+
+[node name="PuertaFinal" type="Sprite2D" parent="." unique_id=1057254898]
+position = Vector2(7047, 516.00006)
+scale = Vector2(0.19921875, 0.21484375)
+texture = ExtResource("6_lh5xm")
+
+[node name="change_scene" type="Area2D" parent="." unique_id=762828211]
+script = ExtResource("7_ak5uq")
+next_scene_path = "res://fondo3/fondo_3.tscn"
+
+[node name="col_final" type="CollisionShape2D" parent="change_scene" unique_id=947841844]
+position = Vector2(7047, 556)
+shape = SubResource("CapsuleShape2D_kuoft")
+
+[connection signal="body_entered" from="change_scene" to="change_scene" method="_on_body_entered"]

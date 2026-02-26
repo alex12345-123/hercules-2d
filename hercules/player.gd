@@ -137,3 +137,7 @@ func add_vida(amount: int):
 	health += amount
 	health = clamp(health, 0, max_health)
 	actualizar_interfaz_vida()
+
+
+func _on_change_scene_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
