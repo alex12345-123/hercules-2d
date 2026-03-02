@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxxjy80k6nkh2" path="res://floor/img/Obstaculosss.png" id="4_gmpmx"]
 [ext_resource type="PackedScene" uid="uid://4yq8xpn2fshf" path="res://enemigos/boss_final.tscn" id="5_3h3nq"]
 [ext_resource type="PackedScene" uid="uid://d22po5kv1px0d" path="res://enmigo_estatico_lanza/lanza.tscn" id="6_bg7hh"]
+[ext_resource type="PackedScene" uid="uid://dmqb0hbcdyn3d" path="res://coleccionable corazon/coleccionable_2.tscn" id="7_8q7ww"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3h3nq"]
 texture = ExtResource("4_gmpmx")
@@ -60,3 +61,9 @@ position = Vector2(1730, 451)
 [node name="lanza" parent="." unique_id=1518960613 instance=ExtResource("6_bg7hh")]
 position = Vector2(228, 830)
 scale = Vector2(440000, 1)
+
+[node name="coleccionable2" parent="." unique_id=1166284727 instance=ExtResource("7_8q7ww")]
+position = Vector2(639, 541)
+
+[node name="coleccionable3" parent="." unique_id=1092924260 instance=ExtResource("7_8q7ww")]
+position = Vector2(2239, 546)
