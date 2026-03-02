@@ -12,7 +12,8 @@ var img_100 = preload("res://enemigos/barraVidaEne/vida100.png")
 var img_50 = preload("res://enemigos/barraVidaEne/vida50.png")
 var img_0  = preload("res://enemigos/barraVidaEne/vida0.png")
 @export var speed = 200
-@export var damage_al_jugador = 15
+@export var damage_al_jugador = 10
+
 
 
 var sentido = 1
@@ -75,10 +76,9 @@ func hacer_ataque(objetivo):
 
 
 func take_damage(amount):
-	health -= 20  # Cada golpe baja exactamente 
+	health -= 50  
 	health = clamp(health, 0, max_health)
 
-	print("Vida Boss: ", health)
 
 	ani.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout

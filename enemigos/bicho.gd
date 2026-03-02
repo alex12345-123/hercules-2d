@@ -82,7 +82,6 @@ func take_damage(amount):
 	health -= 50
 	health = clamp(health, 0, max_health)
 
-	print("Vida Bicho: ", health)
 
 	ani.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout

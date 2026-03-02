@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://0spqr2axqi4t" path="res://enemigos/imgBoss/muerte5.png" id="21_w2oe1"]
 [ext_resource type="Texture2D" uid="uid://bai7xeore032d" path="res://enemigos/imgBoss/muerte6.png" id="22_rprrw"]
 [ext_resource type="Texture2D" uid="uid://ce7ieff4ja0xg" path="res://enemigos/imgBoss/muerte7.png" id="23_kg0ly"]
+[ext_resource type="Texture2D" uid="uid://dbeqrh3rumery" path="res://enemigos/barraVidaEne/vida100.png" id="24_p517x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ih0h"]
 animations = [{
@@ -115,6 +116,7 @@ size = Vector2(67, 57)
 size = Vector2(105, 67)
 
 [node name="bossFinal" type="CharacterBody2D" unique_id=413959621]
+position = Vector2(228, 156)
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_6fauf")
 
@@ -129,7 +131,7 @@ shape = SubResource("RectangleShape2D_63n37")
 [node name="Area2D" type="Area2D" parent="." unique_id=555447494]
 
 [node name="col_ataque" type="CollisionShape2D" parent="Area2D" unique_id=97699702]
-position = Vector2(6.5, 3.5)
+position = Vector2(5.2, 16.8)
 shape = SubResource("RectangleShape2D_llhvf")
 
 [node name="derecha" type="RayCast2D" parent="." unique_id=854127043]
@@ -137,5 +139,14 @@ position = Vector2(32, 0)
 
 [node name="izquierda" type="RayCast2D" parent="." unique_id=393946030]
 position = Vector2(-35, 0)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=281396839]
+offset_left = -42.0
+offset_top = -58.4
+offset_right = 52.799995
+offset_bottom = -40.0
+texture = ExtResource("24_p517x")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="ani_bossFinal" to="." method="_on_ani_boss_final_animation_finished"]
