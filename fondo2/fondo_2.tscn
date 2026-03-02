@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cvhvyh8wj87w8" path="res://coleccionable/coleccionable.tscn" id="4_pq3x3"]
 [ext_resource type="PackedScene" uid="uid://bpex8ev1pfnod" path="res://enemigos/bicho.tscn" id="5_wu4yp"]
 [ext_resource type="Texture2D" uid="uid://d1ggjbx4xrxfy" path="res://fondo2/img/PuertaFinal.png" id="6_lh5xm"]
-[ext_resource type="Script" path="res://fondo2/change_scene.gd" id="7_ak5uq"]
+[ext_resource type="Script" uid="uid://bokqfwyx2s1j" path="res://fondo2/change_scene.gd" id="7_ak5uq"]
+[ext_resource type="PackedScene" uid="uid://dmqb0hbcdyn3d" path="res://coleccionable corazon/coleccionable_2.tscn" id="9_kuoft"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kuoft"]
 radius = 23.0
@@ -57,5 +58,14 @@ next_scene_path = "res://fondo3/fondo_3.tscn"
 [node name="col_final" type="CollisionShape2D" parent="change_scene" unique_id=947841844]
 position = Vector2(7047, 556)
 shape = SubResource("CapsuleShape2D_kuoft")
+
+[node name="coleccionable2" parent="." unique_id=1166284727 instance=ExtResource("9_kuoft")]
+position = Vector2(1421, 580)
+
+[node name="coleccionable3" parent="." unique_id=222198545 instance=ExtResource("9_kuoft")]
+position = Vector2(3995, 332)
+
+[node name="coleccionable4" parent="." unique_id=1319905794 instance=ExtResource("9_kuoft")]
+position = Vector2(1941, 124)
 
 [connection signal="body_entered" from="change_scene" to="change_scene" method="_on_body_entered"]
