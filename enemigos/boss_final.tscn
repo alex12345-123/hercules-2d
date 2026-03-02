@@ -140,7 +140,7 @@ position = Vector2(32, 0)
 [node name="izquierda" type="RayCast2D" parent="." unique_id=393946030]
 position = Vector2(-35, 0)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=281396839]
+[node name="barraVida" type="TextureRect" parent="." unique_id=281396839]
 offset_left = -42.0
 offset_top = -58.4
 offset_right = 52.799995

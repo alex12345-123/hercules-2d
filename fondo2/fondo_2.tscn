@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cf11t0233xw06" path="res://floor_infr/floor_infr.tscn" id="2_pq3x3"]
 [ext_resource type="PackedScene" uid="uid://dp4218tyhlfro" path="res://fondo2/fondo_infr.tscn" id="3_wu4yp"]
 [ext_resource type="PackedScene" uid="uid://cvhvyh8wj87w8" path="res://coleccionable/coleccionable.tscn" id="4_pq3x3"]
-[ext_resource type="PackedScene" path="res://enemigos/bicho.tscn" id="5_wu4yp"]
+[ext_resource type="PackedScene" uid="uid://bpex8ev1pfnod" path="res://enemigos/bicho.tscn" id="5_wu4yp"]
 [ext_resource type="Texture2D" uid="uid://d1ggjbx4xrxfy" path="res://fondo2/img/PuertaFinal.png" id="6_lh5xm"]
 [ext_resource type="Script" path="res://fondo2/change_scene.gd" id="7_ak5uq"]
 

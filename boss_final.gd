@@ -28,6 +28,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	# 1. Si está muerto, no procesamos nada más
+	if muerto: 
+		return
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -74,20 +77,6 @@ func hacer_ataque(objetivo):
 
 	atacando = false
 
-
-func take_damage(amount):
-	health -= 50  
-	health = clamp(health, 0, max_health)
-
-
-	ani.modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	ani.modulate = Color.WHITE
-
-	actualizar_interfaz_vida()
-
-	if health <= 0:
-		die()
 func actualizar_interfaz_vida():
 	if not barra_vida:
 		return
@@ -102,15 +91,36 @@ func actualizar_interfaz_vida():
 		barra_vida.texture = img_50
 	else:
 		barra_vida.texture = img_0
+func take_damage(amount):
+	if muerto: return # No recibir daño si ya está muriendo
+	
+	health -= 50  
+	health = clamp(health, 0, max_health)
+
+	ani.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	ani.modulate = Color.WHITE
+
+	actualizar_interfaz_vida()
+
+	if health <= 0:
+		die()
 
 func die():
-	muerto = true
-	atacando = false
-	velocity = Vector2.ZERO
-	area_vision.monitoring = false
+	muerto = true # Bloquea el movimiento en physics_process
+	velocity = Vector2.ZERO # Detiene al jefe en el sitio
 	
-	ani.play("muerte")
+	# Desactivamos el área de visión para que no ataque mientras muere
+	area_vision.set_deferred("monitoring", false) 
 	
-	await ani.animation_finished
-	
+	# Reproducimos la animación
+	if ani.sprite_frames.has_animation("muerte"):
+		ani.play("muerte")
+		# Esperamos a que la animación termine antes de borrarlo
+		await ani.animation_finished 
+	else:
+		# Si no tienes animación "die", al menos esperamos un poco 
+		# para que se vea la barra de vida en 0
+		await get_tree().create_timer(0.5).timeout
+
 	queue_free()

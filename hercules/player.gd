@@ -18,11 +18,14 @@ var attacking = false
 @onready var barra_vida = $CanvasLayer/barraVida
 @onready var contador: Control = $canva_contador/contador
 
+var atacando = false
+var muerto = false
+
 var img_100 = preload("res://barraVida/1barra.png")
 var img_75 = preload("res://barraVida/2barra.png")
 var img_50 = preload("res://barraVida/3barra.png")
 var img_25 = preload("res://barraVida/4barrra.png")
-
+var spawn_point: Vector2
 var monedas: int = 0
 
 func _ready():
@@ -36,6 +39,8 @@ func _ready():
 	actualizar_interfaz_vida()
 
 func _physics_process(delta: float) -> void:
+	if muerto: 
+		return 
 	var input_axis = Input.get_axis("mover_izquierda", "mover_derecha")
 
 	apply_gravity(delta)
@@ -126,8 +131,26 @@ func actualizar_interfaz_vida():
 		barra_vida.texture = null
 
 func die():
-	get_tree().reload_current_scene()
+	if muerto: return 
+	muerto = true
+	
+	velocity = Vector2.ZERO	
+	attack_area.set_deferred("monitoring", false) # Uso seguro de físicas
+	
+	ani_player.speed_scale = 1.0
+	ani_player.play("die")
+	
+	await ani_player.animation_finished
+	
+	# --- Lógica de Respawn ---
+	respawn()
 
+func respawn():
+	health = max_health      # Curar al personaje
+	muerto = false           # Ya no está muerto
+	global_position = spawn_point # Teletransporte al inicio
+	actualizar_interfaz_vida()    # Mostrar vida llena
+	ani_player.play("reposo")     # Volver a animación normal
 func add_moneda():
 	monedas += 1
 	if contador: 
