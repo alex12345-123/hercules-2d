@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvhvyh8wj87w8" path="res://coleccionable/coleccionable.tscn" id="8_fxqiw"]
 [ext_resource type="PackedScene" uid="uid://dmqb0hbcdyn3d" path="res://coleccionable corazon/coleccionable_2.tscn" id="8_o107x"]
 [ext_resource type="PackedScene" uid="uid://d22po5kv1px0d" path="res://enmigo_estatico_lanza/lanza.tscn" id="9_o107x"]
+[ext_resource type="AudioStream" uid="uid://cxeldve17wrs6" path="res://enviroment/the_mountain-epic-epic-music-490003.mp3" id="10_24wkn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nu1pp"]
 radius = 22.0
@@ -63,11 +64,8 @@ shape = SubResource("CapsuleShape2D_nu1pp")
 [node name="minotauro" parent="." unique_id=643951197 instance=ExtResource("7_0jamg")]
 position = Vector2(5374, 210)
 
-[node name="minotauro2" parent="minotauro" unique_id=1482263778 instance=ExtResource("7_0jamg")]
-position = Vector2(-2057, 126)
-
 [node name="minotauro3" parent="minotauro" unique_id=272720759 instance=ExtResource("7_0jamg")]
-position = Vector2(-2565, 125)
+position = Vector2(-2605, 132)
 
 [node name="medallones" type="Node2D" parent="." unique_id=1179448181]
 
@@ -75,13 +73,13 @@ position = Vector2(-2565, 125)
 position = Vector2(331, 489)
 
 [node name="coleccionable2" parent="medallones" unique_id=1909724663 instance=ExtResource("8_fxqiw")]
-position = Vector2(3852, 60)
+position = Vector2(3852, 55)
 
 [node name="coleccionable3" parent="medallones" unique_id=543509531 instance=ExtResource("8_fxqiw")]
 position = Vector2(4772, 383)
 
 [node name="coleccionable4" parent="medallones" unique_id=1596932753 instance=ExtResource("8_fxqiw")]
-position = Vector2(2957, 251)
+position = Vector2(2886, 244)
 
 [node name="coleccionable5" parent="medallones" unique_id=1631641209 instance=ExtResource("8_fxqiw")]
 position = Vector2(1254, 491)
@@ -90,5 +88,16 @@ position = Vector2(1254, 491)
 
 [node name="coleccionable2" parent="cora" unique_id=1166284727 instance=ExtResource("8_o107x")]
 position = Vector2(5523, 210)
+
+[node name="coleccionable2" parent="." unique_id=1534693525 instance=ExtResource("8_o107x")]
+position = Vector2(2439, 300)
+
+[node name="coleccionable3" parent="." unique_id=978540743 instance=ExtResource("8_o107x")]
+position = Vector2(3772, 225)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1963931598]
+stream = ExtResource("10_24wkn")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="change_scene" to="change_scene" method="_on_body_entered"]
