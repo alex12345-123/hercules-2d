@@ -5,8 +5,8 @@
 
 - [El inframundo la batalla En el Olimpo](#el-inframundo-la-batalla-en-el-olimpo)
   - [INDICE](#indice)
-<<<<<<< HEAD
     - [Conceptualizacion](#conceptualizacion)
+      - [Controles](#controles)
       - [Idea Principal](#idea-principal)
       - [Mecánicas de Juego](#mecánicas-de-juego)
     - [Arte](#arte)
@@ -14,31 +14,25 @@
       - [Personaje Principal](#personaje-principal)
       - [Enemigos](#enemigos)
       - [Coleccionables](#coleccionables)
+      - [Personaje Principal](#personaje-principal-1)
+      - [Enemigos](#enemigos-1)
+      - [Coleccionables](#coleccionables-1)
       - [Barra de Salud](#barra-de-salud)
     - [Elementos Destacables del Desarrollo](#elementos-destacables-del-desarrollo)
       - [Cambio de Bioma](#cambio-de-bioma)
       - [Funcion Atacar a enemigo](#funcion-atacar-a-enemigo)
       - [Funcion Atacar a Hercules](#funcion-atacar-a-hercules)
       - [Funcion Sumar Vida](#funcion-sumar-vida)
-=======
-	- [Conceptualizacion](#conceptualizacion)
-	  - [Idea Principal](#idea-principal)
-	  - [Mecánicas de Juego](#mecánicas-de-juego)
-	- [Arte](#arte)
-	  - [Biomas](#biomas)
-	  - [Personaje Principal](#personaje-principal)
-	  - [Enemigos](#enemigos)
-	  - [Coleccionables](#coleccionables)
-	  - [Barra de Salud](#barra-de-salud)
-	- [Elementos Destacables del Desarrollo](#elementos-destacables-del-desarrollo)
-	  - [Cambio de Bioma](#cambio-de-bioma)
-	  - [Funcion Atacar a enemigo](#funcion-atacar-a-enemigo)
-	  - [Funcion Atacar a Hercules](#funcion-atacar-a-hercules)
-	  - [Funcion Quitar Vida](#funcion-quitar-vida)
 >>>>>>> cbf5b54e1245c120f279dffbc033924aa87d2cf5
 
 ---
 ### Conceptualizacion
+#### Controles
+  * Moverse Izquierda --> A
+  * Moverse Derecha --> D
+  * Saltar --> Espacio
+  * Puñetazo --> F
+
 #### Idea Principal
 
 * Es un juego de acción y aventura basado en combate y progresión de habilidades.
@@ -223,5 +217,4 @@
   ![Bioma1.png](img_readme/coleccionable/Captura%20de%20pantalla%202026-03-02%20222813.png){ width=10000px }
 
 =======
-#### Funcion Quitar Vida
 >>>>>>> cbf5b54e1245c120f279dffbc033924aa87d2cf5
