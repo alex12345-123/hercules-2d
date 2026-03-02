@@ -75,7 +75,7 @@ func hacer_ataque(objetivo):
 
 
 func take_damage(amount):
-	health -= 50  # Cada golpe baja exactamente 50%
+	health -= 50 
 	health = clamp(health, 0, max_health)
 
 	print("Vida Minotauro: ", health)

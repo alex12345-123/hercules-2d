@@ -31,7 +31,7 @@ var monedas: int = 0
 func _ready():
 	health = max_health
 	attack_area.monitoring = false
-	# Importante: añadimos al grupo para que el Minotauro nos vea
+	
 	add_to_group("jugadores") 
 	
 	if contador: 
@@ -70,7 +70,7 @@ func handle_movement(input_axis, delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
 	else:
-		# Movimiento en el aire
+		
 		if input_axis != 0:
 			velocity.x = move_toward(velocity.x, speed * input_axis, air_acceleration * delta)
 		else:
@@ -81,7 +81,7 @@ func update_animation(input_axis):
 		ani_player.speed_scale = velocity.length() / 100
 		ani_player.flip_h = (input_axis < 0)
 		ani_player.play("carrera")
-		# Volteamos el área de ataque con el personaje
+		
 		attack_area.scale.x = 1 if input_axis > 0 else -1
 	elif not is_on_floor():
 		ani_player.play("saltar")
@@ -135,22 +135,22 @@ func die():
 	muerto = true
 	
 	velocity = Vector2.ZERO	
-	attack_area.set_deferred("monitoring", false) # Uso seguro de físicas
+	attack_area.set_deferred("monitoring", false) 
 	
 	ani_player.speed_scale = 1.0
 	ani_player.play("die")
 	
 	await ani_player.animation_finished
 	
-	# --- Lógica de Respawn ---
+	
 	respawn()
 
 func respawn():
-	health = max_health      # Curar al personaje
-	muerto = false           # Ya no está muerto
-	global_position = spawn_point # Teletransporte al inicio
-	actualizar_interfaz_vida()    # Mostrar vida llena
-	ani_player.play("reposo")     # Volver a animación normal
+	health = max_health      
+	muerto = false           
+	global_position = spawn_point 
+	actualizar_interfaz_vida()   
+	ani_player.play("reposo")    
 func add_moneda():
 	monedas += 1
 	if contador: 
@@ -163,4 +163,4 @@ func add_vida(amount: int):
 
 
 func _on_change_scene_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	pass 
