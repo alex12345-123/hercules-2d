@@ -18,6 +18,9 @@ var attacking = false
 @onready var barra_vida = $CanvasLayer/barraVida
 @onready var contador: Control = $canva_contador/contador
 
+var atacando = false
+var muerto = false
+
 var img_100 = preload("res://barraVida/1barra.png")
 var img_75 = preload("res://barraVida/2barra.png")
 var img_50 = preload("res://barraVida/3barra.png")
@@ -36,6 +39,8 @@ func _ready():
 	actualizar_interfaz_vida()
 
 func _physics_process(delta: float) -> void:
+	if muerto: 
+		return 
 	var input_axis = Input.get_axis("mover_izquierda", "mover_derecha")
 
 	apply_gravity(delta)
@@ -126,6 +131,22 @@ func actualizar_interfaz_vida():
 		barra_vida.texture = null
 
 func die():
+	if muerto: return # Evita que la función se ejecute varias veces
+	muerto = true
+	
+	velocity = Vector2.ZERO	
+	attack_area.monitoring = false
+	
+	# Forzamos la escala de tiempo a 1 por si acaso
+	ani_player.speed_scale = 1.0
+	ani_player.play("die")
+	
+	# Esperamos a que termine
+	await ani_player.animation_finished
+	
+	# Si es el personaje principal, a veces es mejor ocultarlo 
+	# antes de recargar la escena
+	visible = false 
 	get_tree().reload_current_scene()
 
 func add_moneda():

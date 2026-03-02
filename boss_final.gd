@@ -104,13 +104,4 @@ func actualizar_interfaz_vida():
 		barra_vida.texture = img_0
 
 func die():
-	muerto = true
-	atacando = false
-	velocity = Vector2.ZERO
-	area_vision.monitoring = false
-	
-	ani.play("muerte")
-	
-	await ani.animation_finished
-	
 	queue_free()
