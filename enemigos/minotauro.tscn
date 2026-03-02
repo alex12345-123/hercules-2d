@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dbeqrh3rumery" path="res://enemigos/barraVidaEne/vida100.png" id="19_q2bu2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2mrv"]
-size = Vector2(51, 82)
+size = Vector2(51, 72)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yd8dh"]
 animations = [{
@@ -88,17 +88,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2h6k"]
-size = Vector2(74, 88)
+size = Vector2(74, 78)
 
 [node name="minotauro" type="CharacterBody2D" unique_id=643951197]
 script = ExtResource("1_g2h6k")
 
 [node name="col_minotauro" type="CollisionShape2D" parent="." unique_id=227388321]
-position = Vector2(4.5, 4)
+position = Vector2(4.5, -1)
 shape = SubResource("RectangleShape2D_r2mrv")
 
 [node name="ani_minotauro" type="AnimatedSprite2D" parent="." unique_id=1625085920]
-position = Vector2(3, 1)
+position = Vector2(3, 0.5)
+scale = Vector2(1, 0.98913044)
 sprite_frames = SubResource("SpriteFrames_yd8dh")
 animation = &"attack"
 frame = 3
@@ -114,7 +115,7 @@ position = Vector2(-9, -1)
 monitoring = false
 
 [node name="col_ataque" type="CollisionShape2D" parent="Area2D" unique_id=1640815739]
-position = Vector2(8, 2)
+position = Vector2(8, -3)
 shape = SubResource("RectangleShape2D_g2h6k")
 
 [node name="barraVida" type="TextureRect" parent="." unique_id=886501541]

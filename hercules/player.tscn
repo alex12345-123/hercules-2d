@@ -284,7 +284,7 @@ animations = [{
 size = Vector2(31, 103.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jso86"]
-size = Vector2(51, 42)
+size = Vector2(120.5, 42)
 
 [node name="player" type="CharacterBody2D" unique_id=2028694410 groups=["jugadores"]]
 position = Vector2(-160, 11)
@@ -304,7 +304,7 @@ shape = SubResource("RectangleShape2D_5qck5")
 position = Vector2(580, 325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ataque" unique_id=1439758488]
-position = Vector2(4, -20)
+position = Vector2(-30.75, -20)
 shape = SubResource("RectangleShape2D_jso86")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=366259270]
