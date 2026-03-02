@@ -29,6 +29,7 @@ folder_colors={
 "res://floor_infr/": "green",
 "res://fondo/": "green",
 "res://fondo2/": "green",
+"res://fondo3/": "green",
 "res://hercules/": "yellow",
 "res://puerta/": "gray"
 }
